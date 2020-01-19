@@ -1,0 +1,26 @@
+%% Solve using Naive Gauss Elimination method
+% We will get three Pivot elements on the augmented matrix
+A=[ 1 2 3;1 0 1;2 1 1];
+b=[1;1;1];
+n=length(A);
+L=eye(n);
+Ab=[A b];
+
+% Operations with Pivot as A(1,1)
+for i=2:3
+alpha=Ab(i,1)/A(1,1);
+Ab(i,:)=Ab(i,:)-alpha*Ab(1,:);
+L(i,1)=alpha;
+end
+
+% Operations with Pivot as A(2,2)
+j=3;
+alpha=Ab(j,2)/Ab(2,2);
+Ab(j,:)=Ab(j,:)-alpha*Ab(2,:);
+L(j,2)=alpha;
+
+% Matrices L and U
+U=Ab(1:n,1:n)
+L
+c=L*U
+
