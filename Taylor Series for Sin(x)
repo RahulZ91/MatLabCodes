@@ -1,0 +1,29 @@
+% Develop the polynomial upto degree 6 and then evaluate-RS
+clc;
+x=sym('x');
+%f=sin(x);
+% Develop the polynomial
+s=0;
+for i=0:1:6
+    f=diff(sin(x),i);
+    y=fact_rec(i);
+    j=x^i;
+    s=s+((f*j)/fact_rec(i));
+    ezplot(s)
+    hold on;
+    grid on;
+end
+legend('sin(x)','sin(x)+x*cos(x)','sin(x)+x*cos(x)- (x^2*sin(x))/2','sin(x) - (x^3*cos(x))/6 - (x^2*sin(x))/2 + x*cos(x)','sin(x) - (x^3*cos(x))/6 - (x^2*sin(x))/2 + x*cos(x)+ (x^4*sin(x))/24','sin(x) - (x^3*cos(x))/6 - (x^2*sin(x))/2 + x*cos(x)+ (x^4*sin(x))/24 + (x^5*cos(x))/120','sin(x) - (x^3*cos(x))/6 - (x^2*sin(x))/2 + x*cos(x)+ (x^4*sin(x))/24 + (x^5*cos(x))/120- (x^6*sin(x))/720')
+title('Taylor Series for Sin(x) upto 6 degrees')
+xlabel('Angle in Radians')
+ylabel('Amplitude')
+s
+t=double(subs(s,x,0))
+%ezplot(s,[-2*pi:2*pi])
+% Evaluate the Taylor polynomial
+%for m=-2*pi:0.5:2*pi
+   % t=double(subs(s,x,m))
+    %plot(m,t,'--');
+    %hold on;
+    %grid on;
+%end 
