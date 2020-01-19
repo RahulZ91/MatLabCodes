@@ -1,0 +1,22 @@
+% Euler series -RS
+clc;
+clear;
+x=sym('x');
+% The polynomial
+s=0;
+for i=0:1:3
+    f=fact_rec(i);
+    j=x^i;
+    k=diff(exp(x),i);
+    s=s+((j*k)/f);
+    ezplot(s)
+    grid on;
+    hold on;
+end
+% Display the polynomial
+s
+% Evaluate the polynomial
+t=subs(s,x,1);
+vpa(double(t),10)
+grid on
+legend('exp(x)','exp(x)+ x*exp(x)','exp(x)+ x*exp(x)+(x^2*exp(x))/2','exp(x) + (x^2*exp(x))/2 + (x^3*exp(x))/6 + x*exp(x)')
